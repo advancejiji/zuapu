@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>家族族谱</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .btn-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #downloadOffline {
+            padding: 10px 22px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #downloadOffline:hover {
+            background: #0b5ed7;
+        }
+        .tree-item {
+            margin-left: 20px;
+            padding: 6px 0;
+            font-size: 16px;
+        }
+        .name {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        .info {
+            color: #555;
+            margin-left: 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,7 +69,57 @@
         <div id="treeContainer"></div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // ========== 1. 你的族谱数据（在这里修改！） ==========
+        const familyList = [
+            {id:1, name:"太祖", birth:"1940年", remark:"", spouse:2, children:[3]},
+            {id:2, name:"祖母", birth:"1942年", remark:"", spouse:1, children:[3]},
+            {id:3, name:"爷爷", birth:"1965年", remark:"", spouse:4, children:[5]},
+            {id:4, name:"奶奶", birth:"1967年", remark:"", spouse:3, children:[5]},
+            {id:5, name:"爸爸", birth:"1988年", remark:"", spouse:6, children:[7]},
+            {id:6, name:"妈妈", birth:"1990年", remark:"", spouse:5, children:[7]},
+            {id:7, name:"我", birth:"2010年", remark:"", spouse:null, children:[]}
+        ];
+
+        // ========== 2. 渲染族谱的核心代码 ==========
+        function renderTree() {
+            const container = document.getElementById('treeContainer');
+            let html = '';
+
+            function showMember(id, level = 0) {
+                const member = familyList.find(item => item.id == id);
+                if (!member) return;
+
+                const space = '&emsp;&emsp;'.repeat(level);
+                const spouse = member.spouse ? familyList.find(item => item.id == member.spouse) : null;
+
+                html += `
+                <div class="tree-item">
+                    ${space}<span class="name">${member.name}</span>
+                    <span class="info">${member.birth}</span>
+                    ${spouse ? '｜配偶：' + spouse.name : ''}
+                </div>`;
+
+                member.children.forEach(childId => showMember(childId, level + 1));
+            }
+
+            showMember(1);
+            container.innerHTML = html;
+        }
+
+        // ========== 3. 下载离线版功能 ==========
+        document.getElementById('downloadOffline').onclick = function () {
+            // 把当前页面的所有内容，打包成一个HTML文件下载
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = '家族族谱.html';
+            a.click();
+        };
+
+        // 页面加载完成后，立刻渲染族谱
+        window.onload = renderTree;
+    </script>
 </body>
 </html>
