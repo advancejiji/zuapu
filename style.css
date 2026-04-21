@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+body {
+  background: #f9f9f9;
+  padding: 20px;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.search-box {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.person {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.person h3 {
+  color: #222;
+  margin-bottom: 5px;
+}
+.person p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
