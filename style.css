@@ -1,47 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Microsoft YaHei", sans-serif;
-}
-body {
-  background: #f9f9f9;
-  padding: 20px;
-}
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-.search-box {
-  width: 100%;
-  padding: 10px 15px;
-  margin-bottom: 30px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-}
-.tree {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.person {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.person h3 {
-  color: #222;
-  margin-bottom: 5px;
-}
-.person p {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:微软雅黑,宋体}
+body{background:#f8f9fa;padding:20px}
+.container{max-width:1000px;margin:0 auto;background:#fff;padding:30px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1)}
+h1{text-align:center;color:#333;margin-bottom:20px}
+.btn-box{text-align:center;margin-bottom:30px}
+#downloadOffline{padding:10px 20px;background:#0d6efd;color:#fff;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-bottom:10px}
+#downloadOffline:hover{background:#0b5ed7}
+.btn-box p{color:#666;font-size:14px}
+.tree-item{margin-left:20px;padding:6px 0}
+.name{font-weight:bold;color:#0d6efd}
+.info{color:#555;margin-left:10px}
