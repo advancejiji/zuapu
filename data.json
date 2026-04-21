@@ -1,9 +1,0 @@
-const familyList = [
-    {id:1, name:"太祖", birth:"1940年", remark:"", spouse:2, children:[3]},
-    {id:2, name:"祖母", birth:"1942年", remark:"", spouse:1, children:[3]},
-    {id:3, name:"爷爷", birth:"1965年", remark:"", spouse:4, children:[5]},
-    {id:4, name:"奶奶", birth:"1967年", remark:"", spouse:3, children:[5]},
-    {id:5, name:"爸爸", birth:"1988年", remark:"", spouse:6, children:[7]},
-    {id:6, name:"妈妈", birth:"1990年", remark:"", spouse:5, children:[7]},
-    {id:7, name:"我", birth:"2010年", remark:"", spouse:null, children:[]}
-];
