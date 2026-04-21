@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "张三",
+    "generation": "第一代",
+    "birth": "1950",
+    "spouse": "李氏",
+    "children": [2, 3],
+    "note": "家族始祖"
+  },
+  {
+    "id": 2,
+    "name": "张大明",
+    "generation": "第二代",
+    "birth": "1975",
+    "parent": 1,
+    "spouse": "王氏",
+    "children": [4],
+    "note": ""
+  },
+  {
+    "id": 3,
+    "name": "张大红",
+    "generation": "第二代",
+    "birth": "1978",
+    "parent": 1,
+    "spouse": "赵氏",
+    "children": [],
+    "note": ""
+  },
+  {
+    "id": 4,
+    "name": "张小明",
+    "generation": "第三代",
+    "birth": "2005",
+    "parent": 2,
+    "spouse": "",
+    "children": [],
+    "note": ""
+  }
+]
